@@ -30,3 +30,23 @@ void STACK_TRAVERSE(Stack *stack, void (*fx)(void *data)){
     top = top->next;
   };
 }
+
+void *STACK_POP(Stack *stack){
+  StackNode *tmpnode = stack->top;
+  void *popdata = stack->top->data;
+  stack->top = tmpnode->next;
+  free(tmpnode);
+  stack->size--;
+  return popdata;
+}
+
+void STACK_DESTROY(Stack *stack){
+  uint64_t iters = stack->size;
+  while(iters>0){
+    StackNode *stacktop = stack->top;
+    stack->top = stack->top->next;
+    free(stacktop);
+    iters--;
+  }
+  free(stack);
+}

@@ -15,4 +15,6 @@ typedef struct Stack{
 //fx protoypes
 Stack *STACK_INIT();
 Stack *STACK_PUSH(Stack *,void *);
-void STACK_TRAVERSE(Stack *stack, void (*)(void *));
+void *STACK_POP(Stack *);
+void STACK_TRAVERSE(Stack *, void (*)(void *));
+void STACK_DESTROY(Stack *);
