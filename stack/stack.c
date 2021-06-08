@@ -46,13 +46,13 @@ void *STACK_POP(Stack *stack){
 }
 
 void STACK_DESTROY(Stack *stack){
-  uint64_t iters = stack->size;
-  while(iters>0){
-    StackNode *stacktop = stack->top;
-    stack->top = stack->top->next;
-    free(stacktop);
-    iters--;
-  }
+  StackNode *tmp = stack->top;
+  StackNode *tofree;
+  while(tmp != NULL){
+    tofree = tmp;
+    tmp = tmp->next;
+    free(tofree);
+  };
   free(stack);
   stack = NULL;
 }

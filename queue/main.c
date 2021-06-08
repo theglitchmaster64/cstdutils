@@ -25,5 +25,7 @@ int main(){
   QUEUE_TRAVERSE(q,printQNode,0);
   printf("\nQ\n");
   QUEUE_DESTROY(q);
+  printf("%p\n",q);
+  printQ(q);
   return 0;
 }

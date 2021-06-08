@@ -17,12 +17,11 @@ int main(){
   uint64_t mydata[5] = {1738,1739,1990,2020,2021};
   for(int i=0;i<5;i++){
     STACK_PUSH(stack,&mydata[i]);
-    printStack(stack);
-    STACK_TRAVERSE(stack,printStackNode);
-    printf("\n");
   }
+  printStack(stack);
   STACK_TRAVERSE(stack,printStackNode);
-  printf("\nDONE\n\n");
+  printf("\nDONE\n");
   STACK_DESTROY(stack);
+  printf("%p\n",stack);
   return 0;
 }
