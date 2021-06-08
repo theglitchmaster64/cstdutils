@@ -25,13 +25,18 @@ Stack *STACK_PUSH(Stack *stack, void *data){
 
 void STACK_TRAVERSE(Stack *stack, void (*fx)(void *data)){
   StackNode *top = stack->top;
-  while(top!=NULL){
+  uint64_t iters = stack->size;
+  while(iters>0){
     fx(top->data);
     top = top->next;
+    iters--;
   };
 }
 
 void *STACK_POP(Stack *stack){
+  if (stack->size == 0){
+    return;
+  }
   StackNode *tmpnode = stack->top;
   void *popdata = stack->top->data;
   stack->top = tmpnode->next;

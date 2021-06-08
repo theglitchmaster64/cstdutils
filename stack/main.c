@@ -21,6 +21,7 @@ int main(){
     STACK_TRAVERSE(stack,printStackNode);
     printf("\n");
   }
+  STACK_TRAVERSE(stack,printStackNode);
   printf("\nDONE\n\n");
   STACK_DESTROY(stack);
   return 0;
