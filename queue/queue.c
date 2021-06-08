@@ -75,11 +75,13 @@ void *QUEUE_DEQ(Queue *q,int8_t mode){
         //deq from front
         deq = q->front;
         q->front = deq->prev;
+        q->front->next = NULL;
       }
       else{
         //deq from back
         deq = q->back;
         q->back = deq->next;
+        q->back->prev = NULL;
       }
     }
     deq_data = deq->data;

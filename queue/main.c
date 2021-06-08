@@ -14,12 +14,12 @@ int main(){
   Queue *q = QUEUE_INIT();
   uint64_t mydata[5] = {1738,1739,1990,2020,2021};
   for(int i=0;i<5;i++){
-    QUEUE_ENQ(q,mydata[i],0);
+    QUEUE_ENQ(q,mydata[i],1);
   }
   printQ(q);
   QUEUE_TRAVERSE(q,printQNode,0);
   printf("\n");
-  QUEUE_DEQ(q,1);QUEUE_DEQ(q,1);
+  QUEUE_DEQ(q,0);QUEUE_DEQ(q,1);
   printQ(q);
   QUEUE_TRAVERSE(q,printQNode,0);
   printf("\n");
