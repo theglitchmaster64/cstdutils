@@ -53,30 +53,34 @@ void QUEUE_ENQ(Queue *q, void *data,int8_t mode){
         q->front = qn;
       }
     }
+    q->size++;
     return;
   }
 }
 
 void *QUEUE_DEQ(Queue *q,int8_t mode){
-  void *deq_data;
-  QNode *deq;
   if (q->size == 0){
-    return NULL;
+    return;
   }
   else{
-    if (mode == 0){
-      //deq from front
-      QNode *second_from_front = malloc(sizeof(QNode));
-      second_from_front = q->front->prev;
+    QNode *deq;
+    void *deq_data;
+    if (q->front == q->back){
       deq = q->front;
-      q->front = second_from_front;
+      q->front = NULL;
+      q->back = NULL;
     }
     else{
-      //deq from back
-      QNode *second_from_back = malloc(sizeof(QNode));
-      second_from_back = q->back->next;
-      deq = q->back;
-      q->back = second_from_back;
+      if (mode == 0){
+        //deq from front
+        deq = q->front;
+        q->front = deq->prev;
+      }
+      else{
+        //deq from back
+        deq = q->back;
+        q->back = deq->next;
+      }
     }
     deq_data = deq->data;
     free(deq);

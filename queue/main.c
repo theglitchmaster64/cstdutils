@@ -19,5 +19,9 @@ int main(){
   printQ(q);
   QUEUE_TRAVERSE(q,printQNode,0);
   printf("\n");
+  QUEUE_DEQ(q,1);QUEUE_DEQ(q,1);
+  printQ(q);
+  QUEUE_TRAVERSE(q,printQNode,0);
+  printf("\n");
   return 0;
 }
