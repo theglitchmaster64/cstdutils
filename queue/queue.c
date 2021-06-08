@@ -109,3 +109,15 @@ void QUEUE_TRAVERSE(Queue *q, void (*fx)(void *data),int8_t mode){
     }
   };
 }
+
+void QUEUE_DESTROY(Queue *q){
+  QNode *start = q->back;
+  QNode *tmp;
+  while (start != NULL){
+    tmp = start;
+    start = start->next;
+    free(tmp);
+  };
+  free(q);
+  q = NULL;
+}

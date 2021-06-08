@@ -12,6 +12,7 @@ void printQ(Queue *q){
 
 int main(){
   Queue *q = QUEUE_INIT();
+  printf("%p\n",q);
   uint64_t mydata[5] = {1738,1739,1990,2020,2021};
   for(int i=0;i<5;i++){
     QUEUE_ENQ(q,mydata[i],1);
@@ -22,6 +23,7 @@ int main(){
   QUEUE_DEQ(q,0);QUEUE_DEQ(q,1);
   printQ(q);
   QUEUE_TRAVERSE(q,printQNode,0);
-  printf("\n");
+  printf("\nQ\n");
+  QUEUE_DESTROY(q);
   return 0;
 }

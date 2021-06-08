@@ -54,4 +54,5 @@ void STACK_DESTROY(Stack *stack){
     iters--;
   }
   free(stack);
+  stack = NULL;
 }
