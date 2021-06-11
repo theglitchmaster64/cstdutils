@@ -26,6 +26,5 @@ int main(){
   printf("\nQ\n");
   QUEUE_DESTROY(q);
   printf("%p\n",q);
-  printQ(q);
   return 0;
 }
